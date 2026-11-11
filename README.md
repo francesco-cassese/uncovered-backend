@@ -57,9 +57,17 @@ Il progetto è l'esame finale del corso Full Stack.
 |---|---|
 | ![Nuova attività](docs/screenshots/business-create.png) | ![Categorie](docs/screenshots/categories-index.png) |
 
-| Tratti distintivi |
+| Tratti distintivi | Login del backoffice |
+|---|---|
+| ![Tratti distintivi](docs/screenshots/distinctive-traits-index.png) | ![Login](docs/screenshots/backend-login.png) |
+
+| Modifica attività | Modifica categoria |
+|---|---|
+| ![Modifica attività](docs/screenshots/backend-business-edit.png) | ![Modifica categoria](docs/screenshots/backend-category-edit.png) |
+
+| Profilo |
 |---|
-| ![Tratti distintivi](docs/screenshots/distinctive-traits-index.png) |
+| ![Profilo](docs/screenshots/backend-profile.png) |
 
 ## Modello dati
 
