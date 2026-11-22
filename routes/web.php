@@ -19,13 +19,18 @@ Route::get('/dashboard', function () {
     $distinctiveTraitsCount = DistinctiveTrait::count();
 
     return view('dashboard', compact('businessesCount', 'categoriesCount', 'distinctiveTraitsCount'));
-})->middleware('auth')->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+// Il profilo resta accessibile anche senza email verificata,
+// così chi ha sbagliato indirizzo può correggerlo.
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
+// Il backoffice richiede login e email verificata.
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('businesses', BusinessController::class);
     Route::resource('distinctive-traits', DistinctiveTraitController::class);
